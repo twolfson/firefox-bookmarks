@@ -59,13 +59,21 @@ $ npm install -g firefox-bookmarks
 npm http GET https://registry.npmjs.org/firefox-bookmarks
 npm http 200 https://registry.npmjs.org/firefox-bookmarks
 ...
-$ firefox-bookmarks
+$ firefox-bookmarks flatten ~/.mozilla/firefox/profile-id/bookmarkbackups/bookmarks-YYYY-MM-DD.json \
+    | underscore print | head
+[
+  {
+    "title": "fxn/tkn - Terminal keynote presentation",
+    "dateAdded": 1364532709949934,
+    "lastModified": 1364532719708073,
+    "description": "tkn - Terminal Keynote - A hack for terminal-based talks",
+    "uri": "https://github.com/fxn/tkn"
+  },
+  {
+    "title": "pedalboard.js - Open-source JavaScript framework for developing audio effects for guitars",
 ```
 
 ## Documentation
-_(Coming soon)_
-
-## Examples
 _(Coming soon)_
 
 ## Contributing
