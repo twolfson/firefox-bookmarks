@@ -1,7 +1,7 @@
 {
   "name": "firefox-bookmarks",
   "description": "Extract information from your Firefox bookmarks",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "https://github.com/twolfson/firefox-bookmarks",
   "author": {
     "name": "Todd Wolfson",

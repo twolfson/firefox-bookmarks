@@ -1,4 +1,6 @@
 # firefox-bookmarks changelog
+0.4.1 - Added test for folder whitelisting
+
 0.4.0 - Added fix for in-menu bookmarks
 
 0.3.0 - Added CLI commands
