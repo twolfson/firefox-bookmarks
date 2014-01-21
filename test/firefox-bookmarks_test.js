@@ -6,7 +6,8 @@ var BookmarkCollection = require('../');
 function debugOutput(filename) {
   before(function (done) {
     if (process.env.DEBUG_TEST) {
-      fs.writeFile(__dirname + '/actual_files/' + filename, JSON.stringify(this.output, null, 4), done);
+      try { fs.mkdirSync(__dirname + '/actual-files'); } catch (e) {}
+      fs.writeFile(__dirname + '/actual-files/' + filename, JSON.stringify(this.output, null, 4), done);
     } else {
       process.nextTick(done);
     }
@@ -20,7 +21,7 @@ describe('A simple set of bookmarks', function () {
   describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
       // Parse the bookmarks
-      var input = require('./test_files/simple.input.json');
+      var input = require('./test-files/simple.input.json');
       this.bookmarks = new BookmarkCollection(input, {
         folders: ['web dev code']
       });
@@ -34,7 +35,7 @@ describe('A simple set of bookmarks', function () {
 
       it('returns an matching array of bookmarks and folders', function () {
         // Compare actual output to expected output
-        var expectedBookmarks = require('./expected_files/simple.output.json');
+        var expectedBookmarks = require('./expected-files/simple.output.json');
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
@@ -47,7 +48,7 @@ describe('A simple set of bookmarks', function () {
 
       it('returns an matching array of minimalist bookmarks', function () {
         // Compare actual output to expected output
-        var expectedBookmarks = require('./expected_files/simple.flatten.json');
+        var expectedBookmarks = require('./expected-files/simple.flatten.json');
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
@@ -58,7 +59,7 @@ describe('A nested set of bookmarks', function () {
   describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
       // Parse the bookmarks
-      var input = require('./test_files/nested.input.json');
+      var input = require('./test-files/nested.input.json');
       this.bookmarks = new BookmarkCollection(input, {
         "folders": ["web dev code"]
       });
@@ -72,7 +73,7 @@ describe('A nested set of bookmarks', function () {
 
       it('returns an matching array of bookmarks and folders', function () {
         // Compare actual output to expected output
-        var expectedBookmarks = require('./expected_files/nested.output.json');
+        var expectedBookmarks = require('./expected-files/nested.output.json');
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
@@ -85,7 +86,7 @@ describe('A nested set of bookmarks', function () {
 
       it('returns an matching array of minimalist bookmarks', function () {
         // Compare actual output to expected output
-        var expectedBookmarks = require('./expected_files/nested.flatten.json');
+        var expectedBookmarks = require('./expected-files/nested.flatten.json');
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
