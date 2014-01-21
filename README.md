@@ -1,6 +1,11 @@
 # firefox-bookmarks [![Build status](https://travis-ci.org/twolfson/firefox-bookmarks.png?branch=master)](https://travis-ci.org/twolfson/firefox-bookmarks)
 
-Extract information from your Firefox bookmarks
+Extract information from your [Firefox][] bookmarks
+
+This was built as part of the [bookmarks][] project, GitHub hosted websites for searching through other people's bookmarks.
+
+[Firefox]: http://www.mozilla.org/en-US/firefox/new/
+[bookmarks]: https://github.com/twolfson/bookmarks
 
 ## Getting Started
 Install the module with: `npm install firefox-bookmarks`
