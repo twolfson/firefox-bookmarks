@@ -15,9 +15,6 @@ function debugOutput(filename) {
   });
 }
 
-// TODO: Test whitelisting
-
-// Basic tests
 describe('A simple set of bookmarks', function () {
   describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
@@ -116,6 +113,29 @@ describe('Bookmarks with an in-menu bookmark', function () {
 
       it('returns an matching array of bookmarks and folders', function () {
         var expectedBookmarks = require(__dirname + '/expected-files/in-menu.output.json');
+        assert.deepEqual(this.output, expectedBookmarks);
+      });
+    });
+  });
+});
+
+describe('Multiple bookmark folders Bookmarks', function () {
+  describe('parsed into a whitelisted `firefox-bookmarks`', function () {
+    before(function () {
+      var input = require(__dirname + '/test-files/multi.input.json');
+      this.bookmarks = new BookmarkCollection(input, {
+        folders: ['web dev code']
+      });
+    });
+
+    describe('when output as JSON', function () {
+      before(function () {
+        this.output = this.bookmarks.toJSON();
+      });
+      debugOutput('multi.whitelist.json');
+
+      it('returns an matching array of bookmarks and folders', function () {
+        var expectedBookmarks = require(__dirname + '/expected-files/multi.whitelist.json');
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
