@@ -52,6 +52,15 @@ bookmarks.toJSON();
 ```
 
 ### CLI
+We also present a command line tool for usage within `npm scripts` or globally.
+
+```js
+$ npm install -g firefox-bookmarks
+npm http GET https://registry.npmjs.org/firefox-bookmarks
+npm http 200 https://registry.npmjs.org/firefox-bookmarks
+...
+$ firefox-bookmarks
+```
 
 ## Documentation
 _(Coming soon)_
