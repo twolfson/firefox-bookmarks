@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Create a new program
-var FirefoxBookmarks = require('../');
+var FirefoxBookmarks = require('../lib/cli');
 var program = new FirefoxBookmarks.cli();
 program.version(require('../package').version);
 

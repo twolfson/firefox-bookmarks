@@ -2,6 +2,7 @@
 var assert = require('assert');
 var fs = require('fs');
 var BookmarkCollection = require('../');
+var BookmarkCollectionCli = require('../lib/cli');
 
 function debugOutput(filename) {
   before(function (done) {
@@ -95,7 +96,7 @@ describe('A nested set of bookmarks', function () {
 
   describe('parsed via CLI task', function () {
     before(function (done) {
-      var cli = new BookmarkCollection.cli();
+      var cli = new BookmarkCollectionCli();
       var that = this;
       cli.flatten(this.inputPath, {}, function (err, json) {
         if (err) { return done(err); }
