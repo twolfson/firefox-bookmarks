@@ -21,6 +21,9 @@
       "url": "https://github.com/twolfson/firefox-bookmarks/blob/master/UNLICENSE"
     }
   ],
+  "bin": {
+    "firefox-bookmarks": "bin/firefox-bookmarks"
+  },
   "main": "lib/firefox-bookmarks",
   "engines": {
     "node": ">= 0.8.0"
@@ -29,7 +32,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "commander-completion": "~0.2.0"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
