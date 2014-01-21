@@ -74,7 +74,29 @@ $ firefox-bookmarks flatten ~/.mozilla/firefox/profile-id/bookmarkbackups/bookma
 ```
 
 ## Documentation
-_(Coming soon)_
+`firefox-bookmarks` exposes `BookmarkCollection` as its `module.exports`.
+
+### `new BookmarkCollection(rawBookmarks, options)`
+
+### CLI
+`firefox-bookmarks` installs a `firefox-bookmarks` executable. Options can be found via `--help`.
+
+```bash
+$ firefox-bookmarks --help
+
+  Usage: firefox-bookmarks [options] [command]
+
+  Commands:
+
+    to-json [filepath]     Parse a bookmarks file into simplified JSON
+    flatten [filepath]     Flatten a bookmarks file into simplified bookmarks
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
