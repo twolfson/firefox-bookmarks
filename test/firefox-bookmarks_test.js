@@ -1,7 +1,7 @@
 // Load in dependencies
 var assert = require('assert');
 var fs = require('fs');
-var parser = require('../');
+var BookmarkCollection = require('../');
 
 function debugOutput(filename) {
   before(function (done) {
@@ -22,7 +22,8 @@ describe('bookmarks', function () {
       var options = require('./test_files/simple.config.json');
 
       // Parse the bookmarks
-      this.output = parser(input, options);
+      this.bookmarks = new BookmarkCollection(input, options);
+      this.output = this.bookmarks.toJSON();
     });
     debugOutput('simple.output.json');
 
@@ -41,7 +42,8 @@ describe('bookmarks', function () {
       var options = require('./test_files/nested.config.json');
 
       // Parse the bookmarks
-      this.output = parser(input, options);
+      this.bookmarks = new BookmarkCollection(input, options);
+      this.output = this.bookmarks.toJSON();
     });
     debugOutput('nested.output.json');
 
