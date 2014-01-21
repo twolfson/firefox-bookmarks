@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 // Create a new program
-var FirefoxBookmarks = require('../lib/cli');
-var program = new FirefoxBookmarks.cli();
+var FirefoxBookmarksCli = require('../lib/cli');
+var program = new FirefoxBookmarksCli();
 program.version(require('../package').version);
 
 // Parse the arguments
 program.parse(process.argv);
 
 // If there weren't enough arguments, display help
-if (process.argv.length <= 2) {
+if (process.argv.length <= 3) {
   program.outputHelp();
 }
