@@ -39,19 +39,6 @@ describe('A simple set of bookmarks', function () {
         assert.deepEqual(this.output, expectedBookmarks);
       });
     });
-
-    describe('when flattened', function () {
-      before(function () {
-        this.output = this.bookmarks.flatten();
-      });
-      debugOutput('simple.flatten.json');
-
-      it('returns an matching array of minimalist bookmarks', function () {
-        // Compare actual output to expected output
-        var expectedBookmarks = require(__dirname + '/expected-files/simple.flatten.json');
-        assert.deepEqual(this.output, expectedBookmarks);
-      });
-    });
   });
 });
 
