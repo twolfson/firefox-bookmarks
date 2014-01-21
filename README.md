@@ -11,9 +11,47 @@ This was built as part of the [bookmarks][] project, GitHub hosted websites for 
 Install the module with: `npm install firefox-bookmarks`
 
 ```javascript
-var firefox_bookmarks = require('firefox-bookmarks');
-firefox_bookmarks.awesome(); // "awesome"
+// Load in raw bookmarks from Firefox backups
+/*
+{
+  "title": "",
+  "id": 1,
+  "dateAdded": 1364532555307821,
+  "lastModified": 1364627167084723,
+  "type": "text/x-moz-place-container",
+  "root": "placesRoot",
+  "children": [
+    ...
+*/
+var rawBookmarks = require('~/.mozilla/firefox/profile-id/bookmarkbackups/bookmarks-YYYY-MM-DD.json');
+
+// Simplify and parse raw bookmarks
+var BookmarkCollection = require('firefox-bookmarks');
+var bookmarks = new BookmarkCollection(rawBookmarks);
+
+// Output simplified bookmark info
+bookmarks.toJSON();
+/*
+[
+  {
+    "type": "folder",
+    "title": "web dev code",
+    "children": [
+      {
+        "type": "bookmark",
+        "title": "fxn/tkn - Terminal keynote presentation",
+        "dateAdded": 1364532709949934,
+        "lastModified": 1364532719708073,
+        "description": "tkn - Terminal Keynote - A hack for terminal-based talks",
+        "uri": "https://github.com/fxn/tkn"
+      }, ...
+    ]
+  }, ...
+]
+*/
 ```
+
+### CLI
 
 ## Documentation
 _(Coming soon)_
