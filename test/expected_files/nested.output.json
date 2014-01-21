@@ -16,6 +16,7 @@
                 "title": "Lorem Ipsum",
                 "children": [
                     {
+                        "type": "bookmark",
                         "title": "Samuel L Ipsum | Alternative Lorem Ipsum Generator",
                         "dateAdded": 1366692227976655,
                         "lastModified": 1366692227977705,
@@ -23,6 +24,7 @@
                         "uri": "http://slipsum.com/"
                     },
                     {
+                        "type": "bookmark",
                         "title": "Lorem Ipsum - All the facts - Lipsum generator",
                         "dateAdded": 1366692227800269,
                         "lastModified": 1366692227800269,
