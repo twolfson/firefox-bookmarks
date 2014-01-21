@@ -17,12 +17,11 @@ function debugOutput(filename) {
 describe('bookmarks', function () {
   describe('formatting a simple set of bookmarks', function () {
     before(function () {
-      // Prepare globals for bookmarks
-      var input = require('./test_files/simple.input.json');
-      var options = require('./test_files/simple.config.json');
-
       // Parse the bookmarks
-      this.bookmarks = new BookmarkCollection(input, options);
+      var input = require('./test_files/simple.input.json');
+      this.bookmarks = new BookmarkCollection(input, {
+        "folders": ["web dev code"]
+      });
       this.output = this.bookmarks.toJSON();
     });
     debugOutput('simple.output.json');
@@ -37,12 +36,11 @@ describe('bookmarks', function () {
 
   describe('formatting a nested set of bookmarks', function () {
     before(function () {
-      // Prepare globals for bookmarks
-      var input = require('./test_files/nested.input.json');
-      var options = require('./test_files/nested.config.json');
-
       // Parse the bookmarks
-      this.bookmarks = new BookmarkCollection(input, options);
+      var input = require('./test_files/nested.input.json');
+      this.bookmarks = new BookmarkCollection(input, {
+        "folders": ["web dev code"]
+      });
       this.output = this.bookmarks.toJSON();
     });
     debugOutput('nested.output.json');
