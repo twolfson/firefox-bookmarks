@@ -1,4 +1,6 @@
 # firefox-bookmarks changelog
+0.3.0 - Added CLI commands
+
 0.2.1 - Moved to underscore folders to dashes
 
 0.2.0 - Moved to nested JSON structure with flatten method option
