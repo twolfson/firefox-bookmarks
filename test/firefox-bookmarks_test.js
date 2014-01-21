@@ -1,6 +1,17 @@
-// Load in assert
-var assert = require('assert'),
-    parser = require('../');
+// Load in dependencies
+var assert = require('assert');
+var fs = require('fs');
+var parser = require('../');
+
+function debugOutput(filename) {
+  before(function (done) {
+    if (process.env.DEBUG_TEST) {
+      fs.writeFile(__dirname + '/actual_files/' + filename, JSON.stringify(this.output, null, 4), done);
+    } else {
+      process.nextTick(done);
+    }
+  });
+}
 
 // Basic test
 describe('bookmarks', function () {
@@ -12,8 +23,8 @@ describe('bookmarks', function () {
 
       // Parse the bookmarks
       this.output = parser(input, options);
-      // require('grunt').file.write(__dirname + '/actual_files/simple.output.json', JSON.stringify(this.output, null, 4));
     });
+    debugOutput('simple.output.json');
 
     it('returns an matching array of bookmarks', function () {
       // Compare actual output to expected output
@@ -31,8 +42,8 @@ describe('bookmarks', function () {
 
       // Parse the bookmarks
       this.output = parser(input, options);
-      require('grunt').file.write(__dirname + '/actual_files/nested.output.json', JSON.stringify(this.output, null, 4));
     });
+    debugOutput('nested.output.json');
 
     it('returns an matching array of bookmarks', function () {
       // Compare actual output to expected output
