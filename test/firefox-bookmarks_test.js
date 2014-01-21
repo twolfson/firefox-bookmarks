@@ -92,4 +92,24 @@ describe('A nested set of bookmarks', function () {
       });
     });
   });
+
+  describe('parsed via CLI task', function () {
+    before(function (done) {
+      var cli = new BookmarkCollection.cli();
+      var that = this;
+      cli.flatten(this.inputPath, {}, function (err, json) {
+        if (err) { return done(err); }
+        that.output = json;
+        done();
+      });
+    });
+
+    debugOutput('nested.cli.json');
+
+    it('returns an matching array of minimalist bookmarks', function () {
+      // Compare actual output to expected output
+      var expectedBookmarks = require(__dirname + '/expected-files/nested.flatten.json');
+      assert.deepEqual(this.output, expectedBookmarks);
+    });
+  });
 });
