@@ -15,7 +15,6 @@ function debugOutput(filename) {
   });
 }
 
-// TODO: Test bookmark in menu
 // TODO: Test whitelisting
 
 // Basic tests
