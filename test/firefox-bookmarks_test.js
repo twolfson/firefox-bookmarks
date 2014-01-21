@@ -13,43 +13,67 @@ function debugOutput(filename) {
   });
 }
 
-// Basic test
-describe('bookmarks', function () {
-  describe('formatting a simple set of bookmarks', function () {
+// TODO: Test bookmark in menu
+
+// Basic tests
+describe('A simple set of bookmarks', function () {
+  describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
       // Parse the bookmarks
       var input = require('./test_files/simple.input.json');
       this.bookmarks = new BookmarkCollection(input, {
-        "folders": ["web dev code"]
+        folders: ['web dev code']
       });
-      this.output = this.bookmarks.toJSON();
     });
-    debugOutput('simple.output.json');
 
-    it('returns an matching array of bookmarks', function () {
-      // Compare actual output to expected output
-      var actualBookmarks = this.output;
-      var expectedBookmarks = require('./expected_files/simple.output.json');
-      assert.deepEqual(actualBookmarks, expectedBookmarks);
+    describe('when output as JSON', function () {
+      before(function () {
+        this.output = this.bookmarks.toJSON();
+      });
+      debugOutput('simple.output.json');
+
+      it('returns an matching array of bookmarks and folders', function () {
+        // Compare actual output to expected output
+        var expectedBookmarks = require('./expected_files/simple.output.json');
+        assert.deepEqual(this.output, expectedBookmarks);
+      });
+    });
+
+    describe.skip('when flattened', function () {
+      it('', function () {
+
+      });
     });
   });
+});
 
-  describe('formatting a nested set of bookmarks', function () {
+describe('A nested set of bookmarks', function () {
+  describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
       // Parse the bookmarks
       var input = require('./test_files/nested.input.json');
       this.bookmarks = new BookmarkCollection(input, {
         "folders": ["web dev code"]
       });
-      this.output = this.bookmarks.toJSON();
     });
-    debugOutput('nested.output.json');
 
-    it('returns an matching array of bookmarks', function () {
-      // Compare actual output to expected output
-      var actualBookmarks = this.output;
-      var expectedBookmarks = require('./expected_files/nested.output.json');
-      assert.deepEqual(actualBookmarks, expectedBookmarks);
+    describe('when output as JSON', function () {
+      before(function () {
+        this.output = this.bookmarks.toJSON();
+      });
+      debugOutput('nested.output.json');
+
+      it('returns an matching array of bookmarks and folders', function () {
+        // Compare actual output to expected output
+        var expectedBookmarks = require('./expected_files/nested.output.json');
+        assert.deepEqual(this.output, expectedBookmarks);
+      });
+    });
+
+    describe.skip('when flattened', function () {
+      it('', function () {
+
+      });
     });
   });
 });
