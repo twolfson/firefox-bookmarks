@@ -1,4 +1,6 @@
 # firefox-bookmarks changelog
+0.4.0 - Added fix for in-menu bookmarks
+
 0.3.0 - Added CLI commands
 
 0.2.1 - Moved to underscore folders to dashes
