@@ -10,8 +10,18 @@ var options = require(cwd + '/config');
 // Parse our bookmarks through the library
 // TODO: Switch parser to event emitter based
 console.log('Formatting bookmarks...');
-var parser = require('../lib/bookmarks');
-var parsedBookmarks = parser(bookmarks, options);
+var BookmarkCollection = require('../');
+
+// Create sugar fn for parsing bookmarks
+function parseBookmarks(bookmarks, options) {
+  // Generate a new collection
+  var collection = new BookmarkCollection(bookmarks, options);
+
+  // Return the bookmarks as an array
+  return collection.toJSON();
+}
+
+var parsedBookmarks = parseBookmarks(bookmarks, options);
 
 // Guarantee an output folder
 var path = require('path');
