@@ -120,6 +120,25 @@ describe('Bookmarks with an in-menu bookmark', function () {
 });
 
 describe('Multiple bookmark folders Bookmarks', function () {
+  describe('parsed into `firefox-bookmarks`', function () {
+    before(function () {
+      var input = require(__dirname + '/test-files/multi.input.json');
+      this.bookmarks = new BookmarkCollection(input);
+    });
+
+    describe('when output as JSON', function () {
+      before(function () {
+        this.output = this.bookmarks.toJSON();
+      });
+      debugOutput('multi.output.json');
+
+      it('returns all bookmarks and folders', function () {
+        var expectedBookmarks = require(__dirname + '/expected-files/multi.output.json');
+        assert.deepEqual(this.output, expectedBookmarks);
+      });
+    });
+  });
+
   describe('parsed into a whitelisted `firefox-bookmarks`', function () {
     before(function () {
       var input = require(__dirname + '/test-files/multi.input.json');
