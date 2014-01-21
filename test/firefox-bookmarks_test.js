@@ -60,7 +60,7 @@ describe('A nested set of bookmarks', function () {
       // Parse the bookmarks
       var input = require('./test_files/nested.input.json');
       this.bookmarks = new BookmarkCollection(input, {
-        "folders": ["web dev code"]
+        folders: ['web dev code']
       });
     });
 
