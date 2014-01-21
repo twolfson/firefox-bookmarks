@@ -39,9 +39,16 @@ describe('A simple set of bookmarks', function () {
       });
     });
 
-    describe.skip('when flattened', function () {
-      it('', function () {
+    describe('when flattened', function () {
+      before(function () {
+        this.output = this.bookmarks.flatten();
+      });
+      debugOutput('simple.flatten.json');
 
+      it('returns an matching array of minimalist bookmarks', function () {
+        // Compare actual output to expected output
+        var expectedBookmarks = require('./expected_files/simple.flatten.json');
+        assert.deepEqual(this.output, expectedBookmarks);
       });
     });
   });
