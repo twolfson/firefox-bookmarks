@@ -15,6 +15,7 @@ function debugOutput(filename) {
 }
 
 // TODO: Test bookmark in menu
+// TODO: Test whitelisting
 
 // Basic tests
 describe('A simple set of bookmarks', function () {
@@ -22,9 +23,7 @@ describe('A simple set of bookmarks', function () {
     before(function () {
       // Parse the bookmarks
       var input = require(__dirname + '/test-files/simple.input.json');
-      this.bookmarks = new BookmarkCollection(input, {
-        folders: ['web dev code']
-      });
+      this.bookmarks = new BookmarkCollection(input);
     });
 
     describe('when output as JSON', function () {
@@ -56,13 +55,15 @@ describe('A simple set of bookmarks', function () {
 });
 
 describe('A nested set of bookmarks', function () {
+  before(function () {
+    this.inputPath = __dirname + '/test-files/nested.input.json';
+  });
+
   describe('parsed into `firefox-bookmarks`', function () {
     before(function () {
       // Parse the bookmarks
-      var input = require(__dirname + '/test-files/nested.input.json');
-      this.bookmarks = new BookmarkCollection(input, {
-        folders: ['web dev code']
-      });
+      var input = require(this.inputPath);
+      this.bookmarks = new BookmarkCollection(input);
     });
 
     describe('when output as JSON', function () {
