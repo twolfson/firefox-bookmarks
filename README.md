@@ -12,6 +12,7 @@ Install the module with: `npm install firefox-bookmarks`
 
 ```javascript
 // Load in raw bookmarks from Firefox backups
+var rawBookmarks = require('~/.mozilla/firefox/profile-id/bookmarkbackups/bookmarks-YYYY-MM-DD.json');
 /*
 {
   "title": "",
@@ -23,7 +24,6 @@ Install the module with: `npm install firefox-bookmarks`
   "children": [
     ...
 */
-var rawBookmarks = require('~/.mozilla/firefox/profile-id/bookmarkbackups/bookmarks-YYYY-MM-DD.json');
 
 // Simplify and parse raw bookmarks
 var BookmarkCollection = require('firefox-bookmarks');
