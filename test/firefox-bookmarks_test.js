@@ -100,3 +100,24 @@ describe('A nested set of bookmarks', function () {
     });
   });
 });
+
+describe('Bookmarks with an in-menu bookmark', function () {
+  describe('parsed into `firefox-bookmarks`', function () {
+    before(function () {
+      var input = require(__dirname + '/test-files/in-menu.input.json');
+      this.bookmarks = new BookmarkCollection(input);
+    });
+
+    describe('when output as JSON', function () {
+      before(function () {
+        this.output = this.bookmarks.toJSON();
+      });
+      debugOutput('in-menu.output.json');
+
+      it('returns an matching array of bookmarks and folders', function () {
+        var expectedBookmarks = require(__dirname + '/expected-files/in-menu.output.json');
+        assert.deepEqual(this.output, expectedBookmarks);
+      });
+    });
+  });
+});
