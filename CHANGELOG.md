@@ -1,4 +1,6 @@
 # firefox-bookmarks changelog
+0.6.0 - Repaired CLI options for `folders`
+
 0.5.0 - Added documentation and fixed various one-off issues
 
 0.4.1 - Added test for folder whitelisting
